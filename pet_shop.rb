@@ -58,12 +58,25 @@ def customer_pet_count(customers)
   customers[:pets].count
 end
 
-def add_pet_to_customer(customers, new_pet)
-  customers[:pets] << new_pet
+def add_pet_to_customer(customer, new_pet)
+  customer[:pets] << new_pet
 end
 
 def customer_can_afford_pet(customers, new_pet)
     return customers[:cash] > new_pet[:price]
+end
+
+def sell_pet_to_customer(pet_shop, pet, customer)
+
+  if pet != nil && customer_can_afford_pet(customer, pet)
+
+    add_pet_to_customer(customer, pet)
+    add_or_remove_cash(pet_shop, pet[:price])
+    increase_pets_sold(pet_shop, 1)
+    else 
+      return false
+      puts "Get out of my shop you cheap bastard."
+  end
 end
 
 
