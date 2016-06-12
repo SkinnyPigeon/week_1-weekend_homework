@@ -79,8 +79,6 @@ def sell_pet_to_customer(pet_shop, pet, customer)
   end
 end
 
-puts 
-puts
 
 
 
